@@ -5,7 +5,7 @@ export const Navbar = () => {
   const textDecoration = 'underline underline-offset-4'
 
   return (
-    <nav className="flex items-center justify-between w-full py-5 px-8 text-sm">
+    <nav className="flex items-center justify-between w-full py-5 px-8 text-sm fixed z-10 top-0">
       <ul className='flex gap-3 items-center'>
         {menu1.map(link => (
           <li
