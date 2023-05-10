@@ -5,43 +5,46 @@ import { MyOrder } from '../MyOrder'
 import { MyOrders } from '../MyOrders'
 import { NotFound } from '../NotFound'
 import { SignIn } from '../SignIn'
+import { Navbar } from '../../Components/Navbar'
+
+import { routes } from '../../routes'
+
 import './App.css'
 
 const AppRoutes = () => {
-  let routes = useRoutes([
-    {
-      path: '/',
-      element: <Home />,
-    },
-    {
-      path: '/my-account',
-      element: <MyAccount />,
-    },
-    {
-      path: '/my-order/:id',
-      element: <MyOrder />,
-    },
-    {
-      path: '/my-orders',
-      element: <MyOrders />,
-    },
-    {
-      path: '/sign-in',
-      element: <SignIn />,
-    },
-    {
-      path: '/*',
-      element: <NotFound />,
+  // Function to return the corresponding component for a given path
+  const getElementForPath = (path) => {
+    switch (path) {
+      case '/':
+        return <Home />;
+      case '/my-account':
+        return <MyAccount />;
+      case '/my-order':
+        return <MyOrder />;
+      case '/my-orders':
+        return <MyOrders />;
+      case '/sign-in':
+        return <SignIn />;
+      default:
+        return <NotFound />;
     }
-  ])
+  };
 
-  return routes;
-}
+  let webRoutes = useRoutes(
+    routes.map((route) => ({
+      path: route.path,
+      element: getElementForPath(route.path),
+    }))
+  );
+
+  return webRoutes;
+};
 
 const App = () => {
   return (
     <BrowserRouter>
       <AppRoutes />
+      <Navbar/>
     </BrowserRouter>
   )
 }
