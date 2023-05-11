@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ShoppingCartContext } from "../../Context";
 import { menu1, menu2 } from "../../routes";
 
 export const Navbar = () => {
+  const context = useContext(ShoppingCartContext)
+
   const textDecoration = 'underline underline-offset-4'
 
   return (
@@ -31,7 +35,7 @@ export const Navbar = () => {
               to={link.to}
               className={({isActive})=> isActive ? textDecoration : undefined }
             >
-              {link.text}
+              {link.to === '/cart' ? `${link.text} ${context.Count}` : link.text}
             </NavLink>
           </li>
         ))}
