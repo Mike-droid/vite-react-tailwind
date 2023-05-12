@@ -18,10 +18,14 @@ export const Card = (data) => {
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
           { data.data.category.name }
         </span>
-        <img className="w-full h-full object-cover rounded-lg" src={ data.data.images[0] } alt={ data.data.title } />
+        <img
+          className="w-full h-full object-cover rounded-lg"
+          src={ data.data.images[0] }
+          alt={ data.data.title }
+        />
         <button
           onClick={() => context.setCount(context.Count + 1)}
-          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
+          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1 cursor-pointer"
         >
           {/* + plus icon */}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
