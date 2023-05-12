@@ -9,6 +9,11 @@ export const Card = (data) => {
     context.setProductToShow(productDetail)
   }
 
+  const addProductsToCart = (productData) => {
+    context.setCount(context.Count + 1)
+    context.setCartProducts([...context.CartProducts, productData])
+  }
+
   return (
     <div
       onClick={() => showProduct(data.data)}
@@ -24,7 +29,7 @@ export const Card = (data) => {
           alt={ data.data.title }
         />
         <button
-          onClick={() => context.setCount(context.Count + 1)}
+          onClick={()=> addProductsToCart(data.data)}
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1 cursor-pointer"
         >
           {/* + plus icon */}
