@@ -19,6 +19,18 @@ export const ProductDetail = () => {
           </svg>
         </button>
       </div>
+      <figure className='px-6'>
+        <img
+          className='w-full h-full rounded-lg'
+          src={context.ProductToShow.images}
+          alt={context.ProductToShow.title}
+        />
+      </figure>
+      <p className='flex flex-col p-6'>
+        <span className='font-medium text-2xl'> ${context.ProductToShow.price} </span>
+        <span className='font-medium text-md'> ${context.ProductToShow.title} </span>
+        <span className='font-light text-sm'> ${context.ProductToShow.description} </span>
+      </p>
     </aside>
   )
 }
