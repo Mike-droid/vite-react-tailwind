@@ -15,6 +15,9 @@ export const routes = [
     path: '/my-orders',
   },
   {
+    path: '/my-orders/:id',
+  },
+  {
     path: '/sign-in',
   },
   {

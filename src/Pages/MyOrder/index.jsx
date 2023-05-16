@@ -1,11 +1,13 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { ShoppingCartContext } from '../../Context'
 import { Layout } from "../../Components/Layout"
 import { OrderCard } from "../../Components/OrderCard"
 
 export const MyOrder = () => {
   const context = useContext(ShoppingCartContext)
+  const params = useParams();
+  const indexOrderPath = Number(params.id);
 
   return (
     <Layout>
@@ -20,20 +22,26 @@ export const MyOrder = () => {
           My Order
         </h1>
       </div>
-      <div className='flex flex-col w-80'>
-        {
-          context.Order?.slice(-1)[0].products.map((product) => (
-              <OrderCard
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                imageUrl={product.images[0]}
-                price={product.price}
-              />
-            )
-          )
-        }
-      </div>
+      <div className="flex flex-col w-80">
+          {!isNaN(indexOrderPath) && context.Order?.[indexOrderPath].products.map((product) => (
+            <OrderCard
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              img={product.images[0]}
+              price={product.price}
+            />
+          ))}
+          {isNaN(indexOrderPath) && context.Order?.slice(-1)[0].products.map((product) => (
+            <OrderCard
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              img={product.images[0]}
+              price={product.price}
+            />
+          ))}
+        </div>
     </Layout>
   )
 }

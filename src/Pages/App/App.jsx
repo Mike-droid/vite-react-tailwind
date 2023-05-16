@@ -23,10 +23,12 @@ const AppRoutes = () => {
         return <MyAccount />;
       case '/my-order':
         return <MyOrder />;
+        case '/my-orders':
+          return <MyOrders />;
       case '/my-orders/last':
         return <MyOrder />;
-      case '/my-orders':
-        return <MyOrders />;
+      case '/my-orders/:id':
+        return <MyOrder />;
       case '/sign-in':
         return <SignIn />;
       default:

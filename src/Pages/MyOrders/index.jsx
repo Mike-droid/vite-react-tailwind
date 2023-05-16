@@ -12,7 +12,7 @@ export const MyOrders = () => {
       <h1>My Orders</h1>
       {
         context.Order.map((order, index) =>
-        <Link key={index} to={`/my-orders/${order.id}`}>
+        <Link key={index} to={`/my-orders/${index}`}>
           <OrdersCard
             totalPrice={order.totalPrice}
             totalProducts={order.totalProducts}
