@@ -33,6 +33,9 @@ export const ShoppingCartProvider = ({ children }) => {
     images: [],
   });
 
+  //* Shopping Cart - Order
+  const [Order, setOrder] = useState([])
+
   return(
     <ShoppingCartContext.Provider value={{
       Count,
@@ -47,6 +50,8 @@ export const ShoppingCartProvider = ({ children }) => {
       IsCheckoutSideMenuOpen,
       openCheckoutSideMenu,
       closeCheckoutSideMenu,
+      Order,
+      setOrder
     }}>
       {children}
     </ShoppingCartContext.Provider>
