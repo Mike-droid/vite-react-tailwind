@@ -12,13 +12,14 @@ export const CheckoutSideMenu = () => {
   const handleDelete = (id) => {
     const filteredProducts = context.CartProducts.filter((product) => product.id !== id)
     context.setCartProducts(filteredProducts)
+    context.setCount(context.Count - 1)
   }
 
   const handleCheckout = () => {
     const orderToAdd = {
       date: '01.02.2023',
       products: context.CartProducts,
-      totalProducts: context.CartProducts.lenght,
+      totalProducts: context.CartProducts.length,
       totalPrice: calculateTotalPrice(context.CartProducts),
     };
 
