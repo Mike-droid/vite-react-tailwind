@@ -1,6 +1,6 @@
+import { createContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types'
-
-import { createContext, useState } from "react";
+import { apiUrl } from "../api";
 
 export const ShoppingCartContext = createContext();
 
@@ -36,6 +36,25 @@ export const ShoppingCartProvider = ({ children }) => {
   //* Shopping Cart - Order
   const [Order, setOrder] = useState([])
 
+  //* Get products
+  const [Items, setItems] = useState(null);
+
+  //* get products by title
+  const [SearchByTitle, setSearchByTitle] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/products`)
+        const data = await response.json()
+        setItems(data)
+      } catch (error) {
+        console.error(`Oh no, ocurrió un error: ${error}`);
+      }
+    }
+    fetchData()
+  }, [])
+
   return(
     <ShoppingCartContext.Provider value={{
       Count,
@@ -51,7 +70,11 @@ export const ShoppingCartProvider = ({ children }) => {
       openCheckoutSideMenu,
       closeCheckoutSideMenu,
       Order,
-      setOrder
+      setOrder,
+      Items,
+      setItems,
+      SearchByTitle,
+      setSearchByTitle
     }}>
       {children}
     </ShoppingCartContext.Provider>
