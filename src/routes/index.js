@@ -9,6 +9,9 @@ export const routes = [
     path: '/my-order',
   },
   {
+    path: '/my-orders/last',
+  },
+  {
     path: '/my-orders',
   },
   {
