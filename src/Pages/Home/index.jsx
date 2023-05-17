@@ -7,6 +7,20 @@ import { ShoppingCartContext } from "../../Context"
 export const Home = () => {
   const context = useContext(ShoppingCartContext)
 
+  const renderView = () => {
+    const itemsToRender = context.SearchByTitle?.length > 0
+      ? context.FilteredItems
+      : context.Items;
+
+    if (itemsToRender?.length > 0) {
+      return itemsToRender.map(item => (
+        <Card key={item.id} data={item} />
+      ));
+    } else {
+      return <p>No Results Found</p>;
+    }
+  };
+
   return (
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
@@ -21,14 +35,7 @@ export const Home = () => {
         onChange={(event) => context.setSearchByTitle(event.target.value)}
       />
       <section className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {
-          context.Items?.map(item => (
-            <Card
-              key={item.id}
-              data={item}
-            />
-          ))
-        }
+        { renderView() }
       </section>
       <ProductDetail/>
     </Layout>
