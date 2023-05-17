@@ -21,21 +21,6 @@ export const routes = [
     path: '/sign-in',
   },
   {
-    path: '/clothes',
-  },
-  {
-    path: '/electronics',
-  },
-  {
-    path: '/furnitures',
-  },
-  {
-    path: '/toys',
-  },
-  {
-    path: '/others',
-  },
-  {
     path: '/email',
   },
   {
@@ -49,42 +34,12 @@ export const menu1 = [
     text: 'Shopi',
     className: 'font-semibold text-lg'
   },
-  {
-    to: '/',
-    text: 'All',
-    className: ''
-  },
-  {
-    to: '/clothes',
-    text: 'clothes',
-    className: ''
-  },
-  {
-    to: '/electronics',
-    text: 'electronics',
-    className: ''
-  },
-  {
-    to: '/furnitures',
-    text: 'furnitures',
-    className: ''
-  },
-  {
-    to: '/toys',
-    text: 'toys',
-    className: ''
-  },
-  {
-    to: '/others',
-    text: 'others',
-    className: ''
-  },
 ]
 
 export const menu2 = [
   {
-    to: '/email',
-    text: 'mike@gmail.com',
+    to: '#',
+    text: 'Made by miguelreyesmoreno@hotmail.com',
     className: 'text-black/60'
   },
   {
@@ -94,7 +49,7 @@ export const menu2 = [
   },
   {
     to: '/my-account',
-    text: 'My occount',
+    text: 'My account',
     className: ''
   },
   {
